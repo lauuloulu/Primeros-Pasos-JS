@@ -192,3 +192,39 @@ console.log(imparesArray);
 document.getElementById('array5').innerHTML= "Se ha eliminado los numeros pares " + imparesArray
 
 
+var ArrayMayor= [300, 34, 10, -354, 9, 874]; 
+
+function numeroMayor(mayor){
+    let result= mayor[0];
+    for (var i = 0; i< mayor.length; i++){
+        if (mayor[i] > result){
+            result = mayor[i];
+        }
+    }
+
+    return result; 
+}
+
+var NumMayor = numeroMayor(ArrayMayor);
+
+console.log(NumMayor);
+document.getElementById('array6').innerHTML= "El número mayor es " + NumMayor;
+
+function numeroMenor(menor){
+    let resultat= menor[0];
+    for (var i = 0; i < menor.length; i++){
+        if (menor[i] < resultat){
+            resultat = menor[i];
+        }
+    }
+
+    return resultat; 
+}
+
+var numMenor = numeroMenor(ArrayMayor);
+
+console.log(numMenor);
+document.getElementById('array7').innerHTML= "El número menor es " + numMenor;
+
+var ArrayLetra= ["Pan", "bizcocho", "Cacao", "cacatua", "Almohada", "fruta"]; 
+
