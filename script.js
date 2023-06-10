@@ -50,6 +50,22 @@ let coder={
 
 document.getElementById("funciones1").innerHTML= "Este documento lo está escribiendo" + " "+  coder.nombre + "." + "<br>" + coder.nombre + " "+ "no se entera mucho de lo que hace. Aún así, hace lo mejor que puede."
 
+let concatenacion2= document.createElement("p");//Se crea el nodo hijo que se insertará al nodo padre
+concatenacion2.innerHTML= `${coder.nombre} ${coder.apellido}`;//Estamos asignado el valor/texto al nodo hijo
+document.querySelector("body").appendChild(concatenacion2); //Estas tres línias, está creando un elemento P sin modificar el HTML, por lo tanto, es la manipulación del DOM. 
+
+function saludarMañana (nombre){
+    let saludo= `Buenos días ${nombre}`
+    console.log(saludo);
+}
+
+saludarMañana("Laura");
+
+function saludar(nombre) {
+    return `Hola ${nombre}, Bienvenida!`; 
+}
+
+
 function multiply(p1, p2){
     return p1 * p2;
 }
@@ -79,6 +95,22 @@ var coche ={
     }
 }
 
+function visualizarMarca(vehiculo){
+    let marca =vehiculo.marca
+    console.log(marca);
+    return marca
+}
+
+visualizarMarca (coche);
+
+function visualizarPuertas(vehiculo){
+    let puertas= vehiculo.puertas
+    console.log(puertas);
+    return puertas
+}
+
+visualizarPuertas(coche);
+
 
 console.log(coche.marca);
 console.log(coche.puertas)
@@ -95,27 +127,68 @@ var ArrayNum = [1,2,3,4,5,6,7,8,9,0];
 
 console.log(ArrayNum);
 
-let text= " ";
-
-for (let i= 0; i< 10; i++){
-    text += "los números son"+ i + "<br>";
-}
-document.getElementById("array1").innerHTML= text;
-
-ArrayNum.push(11);
-
-console.log(ArrayNum)
-
-let size= ArrayNum.length;
-console.log(ArrayNum.length);
-
-var pares= [" "];
-for (pares=0; pares<12; pares=pares +1 *2){
-    console.log(pares);
+function obtenerNumeros(array) {
+    var numeros = [];
+    for(var i= 0; i< array.length; i++) {
+        if( typeof array[i] === 'number'){
+            numeros.push(array[i]);
+        }
+    }
+    return numeros;
 }
 
-ArrayNum.slice(0,2,4,6,7,8,9);
+var numerosArray= obtenerNumeros(ArrayNum);
 
-console.log(ArrayNum)
+console.log(numerosArray);
+document.getElementById('array1').innerHTML= "Los números del Array son " + numerosArray
+
+
+
+
+function añadirValorArray(nuevoNumero, numero){
+    nuevoNumero.push(numero);
+}
+
+añadirValorArray(ArrayNum, 10);
+
+console.log(ArrayNum);
+document.getElementById('array2').innerHTML= "He añadido el último número " + ArrayNum
+
+
+function quitarValorArray(eliminarNumero){
+    eliminarNumero.pop();
+}
+
+quitarValorArray(ArrayNum);
+
+console.log(ArrayNum);
+document.getElementById('array3').innerHTML= "He eliminado el último elemento con pop " + ArrayNum
+
+function quitarPrimerValor(eliminarPrimero){
+    eliminarPrimero.shift();
+}
+
+quitarPrimerValor(ArrayNum);
+
+console.log(ArrayNum);
+document.getElementById('array4').innerHTML= "Y ahora elimino el primer elemento con shift " + ArrayNum
+
+
+function eliminarPares (eliminarPar){
+    var Numimpares= [ ];
+
+    for (var i = 0; i < eliminarPar.length; i ++) {
+        if (eliminarPar[i] % 2 !== 0) {
+            Numimpares.push(eliminarPar[i]);
+        }
+    
+    }
+    return Numimpares;
+}
+
+var imparesArray= eliminarPares (ArrayNum);
+
+console.log(imparesArray);
+document.getElementById('array5').innerHTML= "Se ha eliminado los numeros pares " + imparesArray
 
 
