@@ -226,5 +226,48 @@ var numMenor = numeroMenor(ArrayMayor);
 console.log(numMenor);
 document.getElementById('array7').innerHTML= "El número menor es " + numMenor;
 
-var ArrayLetra= ["Pan", "bizcocho", "Cacao", "cacatua", "Almohada", "fruta"]; 
+let ArrayLetra= ["Pan", "bizcocho", "Cacao", "cacatua", "Almohada", "fruta"]; 
+
+function todoMayuscula(mayuscula){
+    let solution= [];
+    for (var i= 0; i< mayuscula.length; i++) {
+        let textoMayuscula= mayuscula[i].toUpperCase();
+        solution.push(textoMayuscula);
+    }
+return solution;
+}
+
+let solution= todoMayuscula(ArrayLetra);
+console.log(solution);
+document.getElementById('array8').innerHTML= "Todo en mayúsculas " + solution
+
+function todoMinusculas(minusculas){
+    let solucion= [];
+    for (var i= 0; i< minusculas.length; i++) {
+        let textoMinusculas= minusculas[i].toLowerCase();
+        solucion.push(textoMinusculas);
+    }
+return solucion;
+}
+
+let resultadoFinal= todoMinusculas(ArrayLetra);
+
+console.log(resultadoFinal);
+document.getElementById('array9').innerHTML= "Todo en minúscula " + resultadoFinal
+
+
+
+function soloPrimeraMay (capital){
+    let solucio= [];
+    for (var i= 0; i< capital.length; i++) {
+        let primeramay= capital[i];
+        let primeraLetraEnMayuscula= primeramay.charAt(0).toUpperCase() + primeramay.slice(1);
+        solucio.push(primeraLetraEnMayuscula);
+    }
+return solucio;
+}
+
+let resultadoPrimeraMay= soloPrimeraMay(ArrayLetra);
+console.log(resultadoPrimeraMay);
+document.getElementById('array10').innerHTML= "Primera letra en mayúsculas " + resultadoPrimeraMay;
 
